@@ -1,7 +1,7 @@
 const colors = "#ffffff";
 const numStars = 100;
 const layers = document.querySelectorAll(".stars-layer");
-const vibe = document.querySelectorAll("#logo")
+const vibe = document.querySelectorAll("#logo");
 
 for (let i = 0; i < numStars; i++) {
   const star = document.createElement("div");
@@ -17,7 +17,6 @@ for (let i = 0; i < numStars; i++) {
   layer.appendChild(star);
 }
 
-
 function createShootingStar() {
   const star = document.createElement("div");
   star.className = "shooting-star";
@@ -25,18 +24,15 @@ function createShootingStar() {
   star.style.left = Math.random() * window.innerWidth + "px";
   star.style.background = colors;
   star.style.width = star.style.height = "4px";
-  star.style.animationDuration = "1s"; 
+  star.style.animationDuration = "1s";
 
   const layer = layers[Math.floor(Math.random() * layers.length)];
   layer.appendChild(star);
 
-  
   star.addEventListener("animationend", () => star.remove());
 }
 
-
 setInterval(createShootingStar, 1000);
-
 
 window.addEventListener("scroll", () => {
   const scroll = window.scrollY;
@@ -129,10 +125,10 @@ window.addEventListener("scroll", () => {
     document.body.appendChild(popup);
   }
 
-  
   document.getElementById("heart-trigger").addEventListener("click", () => {
     showHeartPopup("make the best of your day — positive vibes");
   });
 })();
-
-
+document.getElementById("menu-toggle").addEventListener("click", () => {
+  document.getElementById("nav-links").classList.toggle("show");
+});
