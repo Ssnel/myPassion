@@ -72,6 +72,19 @@ li:hover {
   justify-content: center;
   text-align: center;
 }
+.ai-introdutie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.ai-introdutie img {
+  max-height: 150px;
+}
+iframe {
+  height: 300px;
+  width: 300px;
+}
 #me {
   width: 50%;
 }
