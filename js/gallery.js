@@ -1,6 +1,8 @@
 const fotos = ["assets/fluffy_pomeriaan_in_cartoon_stijl.png"];
 const gallery = document.getElementById("gallery");
 
+const likedPhotos = JSON.parse(localStorage.getItem("likedPhotos") || "{}");
+
 fotos.forEach((src) => {
   const container = document.createElement("div");
   container.classList.add("container");
