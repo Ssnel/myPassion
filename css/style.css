@@ -21,7 +21,52 @@ main {
 }
 header {
   width: 100%;
+  border-bottom: 2px white solid;
 }
+header a {
+  text-decoration: none;
+  color: white;
+}
+header a:hover{
+  color: #ff69b4;
+
+}
+.gallery-page {
+  text-align: center;
+  text-decoration: underline;
+}
+.container {
+  display: inline-block;
+  border-radius: 25px;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #333;
+}
+.container img {
+  width: 150px;
+  height: auto;
+}
+ .like-btn {
+    font-size: 24px;
+    color: grey;
+    cursor: pointer;
+    transition: color 0.3s;
+    display: inline-block;
+  }
+  .like-btn.liked {
+    color: hotpink;
+  }
+
+  
+  .pop {
+    animation: pop 0.3s ease forwards;
+  }
+
+  @keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+  }
 header img {
   position: absolute;
   max-width: 70px;
