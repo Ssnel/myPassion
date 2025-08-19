@@ -1,27 +1,33 @@
-const fotos = ["assets/fluffy_pomeriaan_in_cartoon_stijl.png"];
+const photos = ["assets/fluffy_pomeriaan_in_cartoon_stijl.png"];
 const gallery = document.getElementById("gallery");
 
 const likedPhotos = JSON.parse(localStorage.getItem("likedPhotos") || "{}");
 
-fotos.forEach((src) => {
+photos.forEach(photo => {
   const container = document.createElement("div");
-  container.classList.add("container");
+  container.classList.add("photo-container");
 
   const img = document.createElement("img");
-  img.src = src;
-  img.alt = "foto";
+  img.src = `assets/${photo}`;
+  img.alt = photo;
 
-  const likeBtn = document.createElement("i");
-  likeBtn.classList.add("fa-heart", "fa-regular", "like-btn");
+  
+  const likeBtn = document.createElement("span");
+  likeBtn.classList.add("like-btn");
+  likeBtn.innerHTML = "♥";
 
+  
+  if (likedPhotos[photo]) {
+    likeBtn.style.color = "pink";
+  } else {
+    likeBtn.style.color = "grey";
+  }
+
+  
   likeBtn.addEventListener("click", () => {
-    likeBtn.classList.toggle("fa-solid");
-    likeBtn.classList.toggle("fa-regular");
-    likeBtn.classList.toggle("liked");
-
-    likeBtn.classList.remove("pop");
-    void likeBtn.offsetWidth;
-    likeBtn.classList.add("pop");
+    likedPhotos[photo] = !likedPhotos[photo]; 
+    likeBtn.style.color = likedPhotos[photo] ? "pink" : "grey";
+    localStorage.setItem("likedPhotos", JSON.stringify(likedPhotos));
   });
 
   container.appendChild(img);
